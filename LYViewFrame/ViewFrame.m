@@ -60,7 +60,7 @@
 
 - (CGPoint)middle
 {
-    CGPoint middle = CGPointMake(self.x + self.centerX, self.y + self.centerY);
+    CGPoint middle = CGPointMake(self.width/2.f, self.height/2.f);
     return middle;
 }
 
@@ -88,6 +88,16 @@
     return CGRectGetHeight(self.frame);
 }
 
+- (void)setSize:(CGSize)size
+{
+    self.bounds = CGRectMake(0, 0, size.width, size.height);
+}
+
+- (CGSize)size
+{
+    return CGSizeMake(self.width, self.height);
+}
+
 - (void)setTop:(CGFloat)top
 {
     self.y = top;
@@ -95,7 +105,7 @@
 
 - (CGFloat)top
 {
-    return CGRectGetMinX(self.frame);
+    return CGRectGetMinY(self.frame);
 }
 
 - (void)setLeft:(CGFloat)left
@@ -128,6 +138,44 @@
 - (CGFloat)right
 {
     return CGRectGetMaxX(self.frame);
+}
+
+- (void)setDBottom:(CGFloat)dBottom
+{
+    UIView *superView = self.superview;
+    self.height = superView.height - self.top + dBottom;
+    
+}
+
+- (CGFloat)dBottom
+{
+    UIView *superView = self.superview;
+    return self.height - superView.height + self.top;
+}
+
+- (void)setDRight:(CGFloat)dRight
+{
+    UIView *superView = self.superview;
+    self.width = superView.width - self.left + dRight;
+}
+
+- (CGFloat)dRight
+{
+    UIView *superView = self.superview;
+    return self.width - superView.width + self.left;
+}
+
+- (void)setEdge:(UIEdgeInsets)edge
+{
+    self.top = edge.top;
+    self.left = edge.left;
+    self.dBottom = edge.bottom;
+    self.dRight = edge.right;
+}
+
+- (UIEdgeInsets)edge
+{
+    return UIEdgeInsetsMake(self.top, self.left, self.dBottom, self.dRight);
 }
 
 @end
