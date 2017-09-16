@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "LYViewFrame"
-  s.version      = "1.1.0"
+  s.version      = "1.2.0"
   s.summary      = "快速更改与获取frame的坐标、尺寸、中心点，以及view的top,left,bottom,right"
 
   # This description is used to generate tags and improve search results.
