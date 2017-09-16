@@ -46,8 +46,8 @@
  * dRight : 右边到父视图右边的距离，有+-之分
  * edge : 四个边分别到父视图四边的距离
  */
-@property (nonatomic, assign) CGFloat dBottom;
-@property (nonatomic, assign) CGFloat dRight;
+@property (nonatomic, assign) CGFloat bottomSpace;
+@property (nonatomic, assign) CGFloat rightSapce;
 @property (nonatomic, assign) UIEdgeInsets edge;
 
 @end
